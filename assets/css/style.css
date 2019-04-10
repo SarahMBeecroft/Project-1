@@ -1,0 +1,21 @@
+header {
+    text-align: center;
+    padding: 50px;
+    border: solid black 1px;
+}
+
+#submit-button {
+    margin-bottom: 50px;
+}
+
+#images {
+    float: left;
+}
+
+#movies {
+    float: right;
+}
+
+#music {
+    float: left;
+}

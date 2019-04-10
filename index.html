@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Links to CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
 </head>
 
 <body>
@@ -26,15 +29,15 @@
                 </div>
             </div>
         </header>
-
+        <br>
         <!-- App details-->
         <div class="row">
             <div class="col-12">
-                <h3>Instructions/App details</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste fugiat repellat blanditiis delectus
-                    expedita ab ipsa culpa vero ad enim explicabo suscipit veniam, porro cum? Quae dolores quam quia
-                    iste nihil dolore suscipit sed necessitatibus pariatur. Distinctio exercitationem, amet tempora odit
-                    consequuntur voluptatem cupiditate quaerat! Laudantium atque molestias dicta quisquam!</p>
+                <h3>How to use SuperSearch:</h3>
+                <p>Just enter a superhero name, comic book title, comic book movie, or any other comic-related term to
+                    get quick results! Check out images of related comic book covers, check for movie listings, or enjoy
+                    original soundtracks through Spotify.
+                </p>
             </div>
         </div>
 
@@ -46,18 +49,32 @@
                     <div class="form-group">
                         <label for="search-input">Search term</label>
                         <input type="text" class="form-control" id="search-input"
-                            placeholder="Enter superhero, comic book title, movie name, etc.">
+                            placeholder="Enter superhero, comic book title, etc.">
                     </div>
                     <div class="form-group">
                         <label for="zip-code">Zip code</label>
                         <input type="text" class="form-control" id="zip-code">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
                 </form>
             </div>
-            <!-- Search results -->
-            <div class="col-8">
 
+            <!-- Search results -->
+            <div class="col-8" id="search-results">
+                <div class="container" id="images">
+                    <h3>Comic Book Images</h3>
+                    <br>
+                </div>
+
+                <div class="container" id="movies">
+                    <h3>Movie Listings</h3>
+                    <br>
+                </div>
+
+                <div class="container" id="music">
+                    <h3>Spotify Listings</h3>
+                    <br>
+                </div>
             </div>
         </div>
 
