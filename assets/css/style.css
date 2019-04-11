@@ -7,3 +7,13 @@ header {
 #submit-button {
     margin-bottom: 50px;
 }
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+#reset-button {
+    margin: 0px 0px 50px 10px;
+ }
