@@ -7,15 +7,3 @@ header {
 #submit-button {
     margin-bottom: 50px;
 }
-
-#images {
-    float: left;
-}
-
-#movies {
-    float: right;
-}
-
-#music {
-    float: left;
-}
