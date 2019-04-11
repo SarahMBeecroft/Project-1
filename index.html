@@ -17,12 +17,12 @@
     <!-- Links to Firebase -->
     <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 
-    <!-- link to jquery -->
+
+    <!-- Links to jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- link to movie.js file -->
     <script src = "assets/javascript/movie.js"></script>
-
 </head>
 
 <body>
@@ -56,15 +56,21 @@
             <div class="col-4">
                 <form>
                     <div class="form-group">
-                        <label for="search-input">Search term</label>
-                        <input type="text" class="form-control" id="search-input"
+                        <label for="search-images">Search Images</label>
+                        <input type="text" class="form-control" id="search-images"
                             placeholder="Enter superhero, comic book title, etc.">
                     </div>
                     <div class="form-group">
-                        <label for="zip-code">Zip code</label>
-                        <input type="text" class="form-control" id="zip-code">
+                        <label for="search-movies">Search Movies</label>
+                        <input type="text" class="form-control" id="search-movies"
+                            placeholder="Enter superhero, comic book title, etc.">
                     </div>
-                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>
+                    <div class="form-group">
+                        <label for="search-music">Search Music</label>
+                        <input type="text" class="form-control" id="search-music"
+                            placeholder="Enter superhero, comic book title, etc.">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button>  <button type="reset" class="btn btn-primary" id="reset-button">Reset Results</button>
                 </form>
             </div>
 
