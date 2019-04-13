@@ -17,34 +17,53 @@ function openSearch(evt, searchParameter) {
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
 
-    var isClicked = $("#movies").click(); 
-    if (isClicked){
-        // store and trim user input of movie search 
-        var movieTitle = $("#searchAll").val().trim();
-      
-        console.log(movieTitle);
-        var queryURL = " http://www.omdbapi.com/?apikey=604e2704&t=" + movieTitle;
-        $.ajax({
-            url: queryURL,
-            method: 'GET',
-        }).then(function (response) {
-            console.log(response)
-    
-            // show and append relative information on the results section 
-            // append movie title 
-            $("#results").html("<b>Movie Name: </b>"+movieTitle + "<br>");
-            //append poster
-            var image = $("<img>"); 
-            image.attr("src", response.Poster); 
-            $("#results").append (image); 
-            $("#results").append("<br>"+"Actors: "+response.Actors+ "<br>"); 
-            $("#results").append("Director: "+response.Director+ "<br>"); 
-            $("#results").append("Awards : "+response.Awards+ "<br>"); 
-            $("#results").append("Country : "+response.Country+ "<br>"); 
-            $("#results").append("Genre : "+response.Genre+ "<br>"); 
-            $("#results").append("Plot: "+response.Plot+ "<br>"); 
-        });
-    }
+    // store and trim user input of movie search 
+    var userInput = $("#searchAll").val().trim();
+    console.log(userInput);
+    var movieQueryURL = " http://www.omdbapi.com/?apikey=604e2704&t=" + userInput;
+    $.ajax({
+        url: movieQueryURL,
+        method: 'GET',
+    }).then(function (response) {
+        console.log(response)
+        // show and append relative information on the Movies section 
+        // append movie title 
+        $("#Movies").html("<b>Movie Name: </b>" + userInput + "<br>");
+        //append poster
+        var image = $("<img>");
+        image.attr("src", response.Poster);
+        $("#Movies").append(image);
+        $("#Movies").append("<br>" + "Actors: " + response.Actors + "<br>");
+        $("#Movies").append("Director: " + response.Director + "<br>");
+        $("#Movies").append("Awards : " + response.Awards + "<br>");
+        $("#Movies").append("Country : " + response.Country + "<br>");
+        $("#Movies").append("Genre : " + response.Genre + "<br>");
+        $("#Movies").append("Plot: " + response.Plot + "<br>");
+    });
+    // starting Apple api query
+    var MusicQueryURL = "https://itunes.apple.com/search?term=" + userInput + "&entity=album&limit=2";
+    $.ajax({
+        url: MusicQueryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(typeof response);
+        console.log(JSON.parse(response))
+        var data = JSON.parse(response)
+        var soundTrackCover = data.results[0].artworkUrl100
+        var collectionView = data.results[0].collectionViewUrl
+        // creating an element to hold the image for soundtrackCover
+        var snTrkCvr = $("<img>")
+        snTrkCvr.attr("src", soundTrackCover);
+        snTrkCvr.wrap($('<a>', {
+            href: collectionView
+        }));
+
+        $("#Music").append(snTrkCvr)
+        console.log(collectionView)
+
+
+    });
+
 
 })
 
