@@ -1,19 +1,8 @@
-header {
-    text-align: center;
-    padding: 50px;
-    border: solid black 1px;
+.icon{
+    margin-bottom: 20px; 
 }
 
-#submit-button {
-    margin-bottom: 50px;
+.searchParameters:hover{
+    color: blue; 
+    border: 1px blue solid; 
 }
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-
-#reset-button {
-    margin: 0px 0px 50px 10px;
- }
