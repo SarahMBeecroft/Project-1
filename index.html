@@ -30,7 +30,7 @@
     <!-- Bootstrap container -->
     <!-- Header -->
     <header>
-        <img src="assets/image/headerupdate.jpg" alt="Superhero Header">
+        <img src="assets/image/topBanner.jpg" alt="Superhero Header" width = "100%">
     </header>
     <br>
     <!-- App details-->
@@ -65,20 +65,52 @@
     <!-- Search Parameters -->
     <div class="container">
         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-1 searchParameters" id = "profile">Profile</div>
-            <div class="col-md-1 searchParameters" id = "images">Images</div>
-            <div class="col-md-1 searchParameters" id = "movies">Movies</div>
-            <div class="col-md-1 searchParameters" id = "music">Music</div>
-            <div class="col-md-1 searchParameters" id = "books">Books</div>
-            <div class="col-md-1 searchParameters" id = "stores">Stores</div>
+            <!-- tabs -->
+            <div class="tab col-md-12">
+                <button class="tablinks" onclick="openSearch(event, 'Profile')">Profile</button>
+                <button class="tablinks" onclick="openSearch(event, 'Images')">Images</button>
+                <button class="tablinks" onclick="openSearch(event, 'Movies')">Movies</button>
+                <button class="tablinks" onclick="openSearch(event, 'Music')">Music</button>
+                <button class="tablinks" onclick="openSearch(event, 'Books')">Books</button>
+                <button class="tablinks" onclick="openSearch(event, 'Stores')">Stores</button>
+            </div>
         </div>
-        <hr>
+
         <!-- Search Results -->
-        <div class="row" id = "results"></div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="Profile" class="tabcontent">
+                    <h3>Profile</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+
+                <div id="Images" class="tabcontent">
+                    <h3>Images</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+
+                <div id="Movies" class="tabcontent">
+                    <h3>Movies</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+
+                <div id="Music" class="tabcontent">
+                    <h3>Music</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+
+                <div id="Books" class="tabcontent">
+                    <h3>Books</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+
+                <div id="Stores" class="tabcontent">
+                    <h3>Stores</h3>
+                    <p>Some placeholder text.</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 
     <!-- Footer -->
     <footer>
@@ -94,6 +126,9 @@
 
     <!-- link to images.js file -->
     <script src="assets/javascript/images.js"></script>
+    <!-- link to movies.js file -->
+    <script src="assets/javascript/movies.js"></script>
+
 
 </body>
 
