@@ -1,118 +1,85 @@
-// // Initializes Firebase
-// var config = {
-//     apiKey: "AIzaSyAA7fqbxbh_t9fqSWqsFGcoA1zS5etAR5o",
-//     authDomain: "supersearch-b7f54.firebaseapp.com",
-//     databaseURL: "https://supersearch-b7f54.firebaseio.com",
-//     projectId: "supersearch-b7f54",
-//     storageBucket: "supersearch-b7f54.appspot.com",
-//     messagingSenderId: "867218048475"
-// };
-// firebase.initializeApp(config);
-
-// // Creates a variable to reference the database
-// var database = firebase.database();
-
-// // Creates click event when user clicks submit button 
-// $("#submit-button").on("click", function (event) {
-
-//     // Prevents page from being reloaded
-//     event.preventDefault();
-
-//     // Gets input values
-//     var images = $("#search-images").val().trim();
-
-//     // Creates local "temporary" object for holding comic data
-//     var comicData = {
-
-//         images: images,
-//         movies: movies,
-//         music: music,
-//         dateAdded:
-//             firebase.database.ServerValue.TIMESTAMP
-//     };
-
-//     // Pushes comic data to database
-//     database.ref().push(comicData);
-
-//     // Clears text boxes
-//     $("#search-images").val("");
-// });
-
-// // Adds child snapshot to database
-// database.ref().on("child_added", function (childSnapshot) {
-//     // Variables for child snapshot
-//     var images = childSnapshot.val().images;
-//     var movies = childSnapshot.val().movies;
-//     var music = childSnapshot.val().music;
-
-
-//     // Appends the new row to the train table
-//     $("#images").append(images);
-
-
-// })
-
-
-
-
 
 // Comic Vine API Key 
 // 7e34951fcec75de14801f45cdd1fa59016a6a03c
 
-// Declares variable for queryURL
-var searchTerm = $("#search-images").text();
-console.log(searchTerm);
+// Marvel API Keys
+// Public Key
+// aa8be1be5797e77aa2b312f6e96dfedc
+// Private Key
+// d4145605f826d819065b35e35a72a0b14024f23f
 
-// Function to display images
-function displayImages() {
-
-// Query URL for Comic Vine
-var queryURL = "https://comicvine.gamespot.com/api/volumes/?api_key=7e34951fcec75de14801f45cdd1fa59016a6a03c&format=json&sort=name:asc&filter=name:" + searchTerm + "";
-console.log(queryURL);
-
-// Ajax call 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-
-}).then(function (response) {
-
-// Testing response to make sure object is there
-console.log(response);
-
-// Sets up variable for response data
-var results = response.data;
-
-// Empties div 
-$("#images").empty();
-
-// For loop to display images
-for (var i = 0; i < results.length; i++) {
-
-    // Adds results to div
-    $("#images").append(results);
-
-        };
-    });
-};
+// Cognitive Services Group Keys (Bing/Azure)
+// 5bf4d67faac747c1b3bb8b918c7bb775
+// 17d8f18f01bf4c2eb580554b8a578e62
 
 
-// Function to add click event when submit button is clicked
+// // Click event when user hits submit button
 $("#submit-button").on("click", function (event) {
+    
+    // Prevents page from reloading
+    event.preventDefault();
 
-event.preventDefault();
+    // store and trim user input of movie search 
+    var searchTerm = $("#searchAll").val().trim();
 
-// Takes user's input in text box and trims it so there's no white space
-var searchTerm = $("#submit-button").text().trim();
+    // Clears search box
+    $("#searchAll").val(""); 
+    console.log(searchTerm);
+    
+    var queryURL = "https://comicvine.gamespot.com/api/issues/?api_key=7e34951fcec75de14801f45cdd1fa59016a6a03c&format=json&filter=name:batman";
+    // var queryURL = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&title=" + searchTerm + "&limit=10&apikey=aa8be1be5797e77aa2b312f6e96dfedc";
+    // var queryURL = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=comic book covers&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
+        // Ajax call    
+        $.ajax({
+            url: queryURL,
+            method: 'GET',
+        }).then(function (response) {
+            console.log(response)
+    
+            // show and append relative information on the results section 
+            // append movie title 
+            $("#results").html(response);
+            
+            // Appends image 
+            var image = $("<img>"); 
+            image.attr("src", response); 
+            $("#results").append (response); 
+         
+        });
+    })
 
-        // Pushes user's input to array of search terms
-        searchTerm.push(searchTerm);
-
-       
-    });
 
 
 
 
 
+    // Azure code
 
+    // $(function() {
+    //     var params = {
+    //         // Request parameters
+    //         "q": "comics",
+    //         "count": "10",
+    //         "offset": "0",
+    //         "mkt": "en-us",
+    //         "safeSearch": "Moderate",
+    //     };
+      
+    //     $.ajax({
+    //         url: "https://uswest.api.cognitive.microsoft.com/bing/v7.0/images/search?" + $.param(params), // add uswest
+    //         beforeSend: function(xhrObj){
+    //             // Request headers
+    //             xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+    //             xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{5bf4d67faac747c1b3bb8b918c7bb775}");
+    //         },
+    //         type: "GET",
+    //         // Request body
+    //         data: "{body}",
+    //     })
+    //     .done(function(data) {
+    //         alert(JSON.stringify(data));
+    //     })
+    //     .fail(function() {
+    //         alert("error");
+    //     });
+    // });
