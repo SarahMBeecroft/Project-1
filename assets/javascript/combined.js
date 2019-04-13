@@ -16,6 +16,7 @@ function openSearch(evt, searchParameter) {
 // click event: when user clicks the submit button, show the search result on the right column 
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
+
     // store and trim user input of movie search 
     var userInput = $("#searchAll").val().trim();
     console.log(userInput);
@@ -62,6 +63,7 @@ $("#submit-button").on("click", function (event) {
 
 
     });
+
 
 })
 
