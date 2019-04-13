@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SuperSource</title>
+    <title>SuperSearch</title>
 
     <!-- Links to Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Links to Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <!-- Links to CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -20,89 +24,70 @@
     <!-- Links to jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- link to movie.js file -->
-    <script src = "assets/javascript/movie.js"></script>
-    
 </head>
 
 <body>
-
     <!-- Bootstrap container -->
+    <!-- Header -->
+    <header>
+        <img src="assets/image/headerupdate.jpg" alt="Superhero Header">
+    </header>
+    <br>
+    <!-- App details-->
     <div class="container">
-
-        <!-- Header -->
-        <header>
-            <div class="row">
-                <div class="col-12">
-                    <h1>SuperSearch</h1>
-                </div>
-            </div>
-        </header>
-        <br>
-        <!-- App details-->
+        <!-- Search Bar -->
         <div class="row">
-            <div class="col-12">
-                <h3>How to use SuperSearch:</h3>
-                <p>Just enter a superhero name, comic book title, comic book movie, or any other comic-related term to
+            <div class="col-md-12">
+                <p><i class="fas fa-question-circle"></i><b> How to use SuperSearch: </b>Just enter a superhero name,
+                    comic book title, comic book movie, or
+                    any
+                    other comic-related term to
                     get quick results! Check out images of related comic book covers, check for movie listings, or enjoy
                     original soundtracks through Spotify.
                 </p>
             </div>
         </div>
-
-        <!-- Input form and search results -->
         <div class="row">
-            <!-- Input form -->
-            <div class="col-4">
-                <form>
-                    <div class="form-group">
-                        <label for="search-images">Search Images</label>
-                        <input type="text" class="form-control" id="search-images"
-                            placeholder="Enter superhero, comic book title, etc.">
-                    </div>
-                    <div class="form-group">
-                        <label for="search-movies">Search Movies</label>
-                        <input type="text" class="form-control" id="search-movies"
-                            placeholder="Enter superhero, comic book title, etc.">
-                    </div>
-                    <div class="form-group">
-                        <label for="search-music">Search Music</label>
-                        <input type="text" class="form-control" id="search-music"
-                            placeholder="Enter superhero, comic book title, etc.">
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="submit-button">Submit</button> <button
-                        type="reset" class="btn btn-primary" id="reset-button">Reset Results</button>
-                </form>
+            <div class="col-md-1 logo"><img src="assets/image/LOGO.png" alt="logo" width="80%"></div>
+            <div class="col-md-9 search_bar">
+                <input type="text" class="form-control" id="searchAll"
+                    placeholder="Enter superhero, comic book title, etc.">
             </div>
-
-            <!-- Search results -->
-            <div class="col-8" id="search-results">
-                <div class="container" id="images">
-                    <h3>Comic Book Images</h3>
-                    <br>
-                </div>
-
-                <div class="container" id="movies">
-                    <h3>Movie Listings</h3>
-                    <br>
-                </div>
-
-                <div class="container" id="music">
-                    <h3>Spotify Listings</h3>
-                    <br>
-                </div>
+            <div class="col-md-1 icon">
+                <button id="submit-button"><i class="fas fa-search"></i>
+            </div>
+            <div class="col-md-1 icon">
+                <button id="reload-button"><i class="fas fa-redo-alt"></i>
             </div>
         </div>
+    </div>
+
+    <!-- Search Parameters -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-1 searchParameters" id = "profile">Profile</div>
+            <div class="col-md-1 searchParameters" id = "images">Images</div>
+            <div class="col-md-1 searchParameters" id = "movies">Movies</div>
+            <div class="col-md-1 searchParameters" id = "music">Music</div>
+            <div class="col-md-1 searchParameters" id = "books">Books</div>
+            <div class="col-md-1 searchParameters" id = "stores">Stores</div>
+        </div>
+        <hr>
+        <!-- Search Results -->
+        <div class="row" id = "results"></div>
+    </div>
 
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-12"></div>
-            </div>
-        </footer>
 
-        <!-- End of Bootstrap container -->
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-12"></div>
+        </div>
+    </footer>
+
+    <!-- End of Bootstrap container -->
     </div>
     <!-- link to movie.js file -->
     <script src="assets/javascript/movie.js"></script>
