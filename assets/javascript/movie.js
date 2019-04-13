@@ -5,7 +5,7 @@ $("#submit-button").on("click", function (event) {
     if (isClicked){
         // store and trim user input of movie search 
         var movieTitle = $("#searchAll").val().trim();
-        $("#searchAll").val(""); 
+      
         console.log(movieTitle);
         var queryURL = " http://www.omdbapi.com/?apikey=604e2704&t=" + movieTitle;
         $.ajax({
