@@ -12,6 +12,9 @@
 // 5bf4d67faac747c1b3bb8b918c7bb775
 // 17d8f18f01bf4c2eb580554b8a578e62
 
+// var queryURL = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&title=" + searchTerm + "&limit=10&apikey=aa8be1be5797e77aa2b312f6e96dfedc";
+// var queryURL = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=comic book covers&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
+        
 
 // // Click event when user hits submit button
 $("#submit-button").on("click", function (event) {
@@ -19,67 +22,33 @@ $("#submit-button").on("click", function (event) {
     // Prevents page from reloading
     event.preventDefault();
 
-    // store and trim user input of movie search 
+    // Creates variable for search term and trims 
     var searchTerm = $("#searchAll").val().trim();
-
-    // Clears search box
-    $("#searchAll").val(""); 
     console.log(searchTerm);
     
-    var queryURL = "https://comicvine.gamespot.com/api/issues/?api_key=7e34951fcec75de14801f45cdd1fa59016a6a03c&format=json&filter=name:batman";
-    // var queryURL = "https://gateway.marvel.com:443/v1/public/comics?format=comic&formatType=comic&title=" + searchTerm + "&limit=10&apikey=aa8be1be5797e77aa2b312f6e96dfedc";
-    // var queryURL = "https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=comic book covers&count=10&offset=0&mkt=en-us&safeSearch=Moderate";
-        // Ajax call    
-        $.ajax({
-            url: queryURL,
-            method: 'GET',
-        }).then(function (response) {
-            console.log(response)
-    
-            // show and append relative information on the results section 
-            // append movie title 
-            $("#results").html(response);
+    var queryURL = "https://cors-anywhere.herokuapp.com/https://comicvine.gamespot.com/api/issues/?api_key=7e34951fcec75de14801f45cdd1fa59016a6a03c&format=json&filter=name:" + searchTerm + "&limit=10"; // https://cors-anywhere.herokuapp.com prevents cors error
+   
+    // Ajax call    
+    $.ajax({
+        url: queryURL,
+        method: 'GET',
+    }).then(function (response) {
+
+        // Testing response to make sure object is there
+        console.log(response);
+        
+        // For loop to display gifs
+        for (var i = 0; i < response.results.length; i++) {
+
+            console.log(response.results[i].image.medium_url);
+        
+            // Creates variable for image and applies image attribute
+            var image = $("<img>").attr("src", response.results[i].image.medium_url);
+
+            // Adds both rating and gif to gif div in HTML
+            $("#results").append(image);
             
-            // Appends image 
-            var image = $("<img>"); 
-            image.attr("src", response); 
-            $("#results").append (response); 
-         
-        });
+        }
     })
+})
 
-
-
-
-
-
-    // Azure code
-
-    // $(function() {
-    //     var params = {
-    //         // Request parameters
-    //         "q": "comics",
-    //         "count": "10",
-    //         "offset": "0",
-    //         "mkt": "en-us",
-    //         "safeSearch": "Moderate",
-    //     };
-      
-    //     $.ajax({
-    //         url: "https://uswest.api.cognitive.microsoft.com/bing/v7.0/images/search?" + $.param(params), // add uswest
-    //         beforeSend: function(xhrObj){
-    //             // Request headers
-    //             xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-    //             xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{5bf4d67faac747c1b3bb8b918c7bb775}");
-    //         },
-    //         type: "GET",
-    //         // Request body
-    //         data: "{body}",
-    //     })
-    //     .done(function(data) {
-    //         alert(JSON.stringify(data));
-    //     })
-    //     .fail(function() {
-    //         alert("error");
-    //     });
-    // });
