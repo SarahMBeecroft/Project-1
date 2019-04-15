@@ -53,3 +53,12 @@
   border: 1px solid #ccc;
   border-top: none;
 }
+
+.char_image{
+  width: 10%; 
+  height: auto; 
+}
+
+body{
+  margin-bottom: 3%; 
+}

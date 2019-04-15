@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Links to Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script> -->
 
     <!-- Links to jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,7 +30,7 @@
     <!-- Bootstrap container -->
     <!-- Header -->
     <header>
-        <img src="assets/image/topBanner.jpg" alt="Superhero Header" width = "100%">
+        <img src="assets/image/header.jpg" alt="Superhero Header" width="100%">
     </header>
     <br>
     <!-- App details-->
@@ -48,8 +48,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-1 logo"><img src="assets/image/LOGO.png" alt="logo" width="80%"></div>
-            <div class="col-md-9 search_bar">
+            <div class="col-md-2 logo"><img src="assets/image/logo.png" alt="logo" width="100%"></div>
+            <div class="col-md-8 search_bar">
                 <input type="text" class="form-control" id="searchAll"
                     placeholder="Enter superhero, comic book title, etc.">
             </div>
@@ -67,46 +67,66 @@
         <div class="row">
             <!-- tabs -->
             <div class="tab col-md-12">
-                <button id = "Profile_tab" class="tablinks" onclick="openSearch(event, 'Profile')">Profile</button>
-                <button id = "Images_tab" class="tablinks" onclick="openSearch(event, 'Images')">Images</button>
-                <button id = "Movies_tab" class="tablinks" onclick="openSearch(event, 'Movies')">Movies</button>
-                <button id = "Music_tab" class="tablinks" onclick="openSearch(event, 'Music')">Music</button>
-                <button id = "Books_tab" class="tablinks" onclick="openSearch(event, 'Books')">Books</button>
-                <button id = "Stores_tab" class="tablinks" onclick="openSearch(event, 'Stores')">Stores</button>
+                <button id="Character_tab" class="tablinks active"
+                    onclick="openSearch(event, 'Character')">Character</button>
+                <button id="Images_tab" class="tablinks" onclick="openSearch(event, 'Images')">Images</button>
+                <button id="Movies_tab" class="tablinks" onclick="openSearch(event, 'Movies')">Movies</button>
+                <button id="Music_tab" class="tablinks" onclick="openSearch(event, 'Music')">Music</button>
+                <button id="Books_tab" class="tablinks" onclick="openSearch(event, 'Books')">Books</button>
+                <button id="Stores_tab" class="tablinks" onclick="openSearch(event, 'Stores')">Stores</button>
             </div>
         </div>
 
         <!-- Search Results -->
         <div class="row">
             <div class="col-md-12">
-                <div id="Profile" class="tabcontent">
-                    <h3>Profile</h3>
-                    <p>Some placeholder text.</p>
+                <!-- set Character as default display -->
+                <div id="Character" class="tabcontent" style="display:block">
+                    <h3>Character</h3>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
 
                 <div id="Images" class="tabcontent">
                     <h3>Images</h3>
-                    <p>Some placeholder text.</p>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
 
                 <div id="Movies" class="tabcontent">
                     <h3>Movies</h3>
-                    <p>Some placeholder text.</p>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
 
                 <div id="Music" class="tabcontent">
                     <h3>Music</h3>
-                    <p>Some placeholder text.</p>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
 
                 <div id="Books" class="tabcontent">
                     <h3>Books</h3>
-                    <p>This is a text.</p>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
 
                 <div id="Stores" class="tabcontent">
                     <h3>Stores</h3>
-                    <p>Some placeholder text.</p>
+                    <p>Input your favorite superhero in the search box above! We will come back with all the information
+                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
+                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
+                        novels, gear, and more.</p>
                 </div>
             </div>
         </div>
@@ -121,14 +141,15 @@
 
     <!-- End of Bootstrap container -->
     </div>
+
     <!-- link to movie.js file -->
     <script src="assets/javascript/movie.js"></script>
-
     <!-- link to images.js file -->
     <script src="assets/javascript/images.js"></script>
-    <!-- link to movies.js file -->
-    <script src="assets/javascript/movies.js"></script>
-
+    <!-- link to music.js file -->
+    <script src="assets/javascript/music.js"></script>
+    <!-- link to character.js file -->
+    <script src="assets/javascript/character.js"></script>
 
 </body>
 
