@@ -36,7 +36,7 @@ $("#submit-button").on("click", function (event) {
 
         // Testing response to make sure object is there
         console.log(response);
-        
+        $("#Images").html(""); 
         // For loop to display gifs
         for (var i = 0; i < response.results.length; i++) {
 
@@ -46,8 +46,8 @@ $("#submit-button").on("click", function (event) {
             var image = $("<img>").attr("src", response.results[i].image.medium_url);
 
             // Adds both rating and gif to gif div in HTML
-            $("#results").append(image);
             
+            $("#Images").append(image);
         }
     })
 })

@@ -27,44 +27,17 @@ $("#submit-button").on("click", function (event) {
     }).then(function (response) {
         console.log(response)
         // show and append relative information on the Movies section 
-        // append movie title 
-        $("#Movies").html("<b>Movie Name: </b>" + userInput + "<br>");
         //append poster
         var image = $("<img>");
         image.attr("src", response.Poster);
-        $("#Movies").append(image);
-        $("#Movies").append("<br>" + "Actors: " + response.Actors + "<br>");
-        $("#Movies").append("Director: " + response.Director + "<br>");
-        $("#Movies").append("Awards : " + response.Awards + "<br>");
-        $("#Movies").append("Country : " + response.Country + "<br>");
-        $("#Movies").append("Genre : " + response.Genre + "<br>");
-        $("#Movies").append("Plot: " + response.Plot + "<br>");
+        $("#Movies").html(image);
+        // append movie title 
+        $("#Movies").append("<br><b>Movie Name: </b>" + userInput);
+        $("#Movies").append("<br>" + "<b>Actors</b>: " + response.Actors + "<br>");
+        $("#Movies").append("<b>Director: </b>" + response.Director + "<br>");
+        $("#Movies").append("<b>Awards : </b>" + response.Awards + "<br>");
+        $("#Movies").append("<b>Country : </b>" + response.Country + "<br>");
+        $("#Movies").append("<b>Genre : </b>" + response.Genre + "<br>");
+        $("#Movies").append("<b>Plot: </b>" + response.Plot + "<br>");
     });
-    // starting Apple api query
-    var MusicQueryURL = "https://itunes.apple.com/search?term=" + userInput + "&entity=album&limit=2";
-    $.ajax({
-        url: MusicQueryURL,
-        method: "GET"
-    }).then(function (response) {
-        console.log(typeof response);
-        console.log(JSON.parse(response))
-        var data = JSON.parse(response)
-        var soundTrackCover = data.results[0].artworkUrl100
-        var collectionView = data.results[0].collectionViewUrl
-        // creating an element to hold the image for soundtrackCover
-        var snTrkCvr = $("<img>")
-        snTrkCvr.attr("src", soundTrackCover);
-        snTrkCvr.wrap($('<a>', {
-            href: collectionView
-        }));
-
-        $("#Music").append(snTrkCvr)
-        console.log(collectionView)
-
-
-    });
-
-
 })
-
-
