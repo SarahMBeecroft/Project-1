@@ -9,26 +9,32 @@ $("#submit-button").on("click", function (event) {
   }).then(function (response) {
     // Testing response to make sure object is there
     console.log(response);
-    var heroImage = $("<img>")
-    heroImage.attr("src", response.results[0].image.url);
-    heroImage.addClass("char_image");
-    $("#Character").html(heroImage);
+    $("#Character").html("");
+    for (i = 0; i < response.results.length; i++) {
+      var newDiv = $("<div>");
+      var heroImage = $("<img>");
+      heroImage.attr("src", response.results[i].image.url);
+      heroImage.addClass("char_image");
+      $(newDiv).html(heroImage);
 
-    $("#Character").append("<br><b>Full Name: </b>" + response.results[0].biography["full-name"]);
-    $("#Character").append("<br><b>Place of Birth: </b>" + response.results[0].biography["place-of-birth"]);
-    $("#Character").append("<br><b>First Appearance: </b>" + response.results[0].biography["first-appearance"]);
-    $("#Character").append("<br><b>Publisher: </b>" + response.results[0].biography["publisher"]);
+      $(newDiv).append("<br><b>Full Name: </b>" + response.results[i].biography["full-name"]);
+      $(newDiv).append("<br><b>Place of Birth: </b>" + response.results[i].biography["place-of-birth"]);
+      $(newDiv).append("<br><b>First Appearance: </b>" + response.results[i].biography["first-appearance"]);
+      $(newDiv).append("<br><b>Publisher: </b>" + response.results[i].biography["publisher"]);
+      $(newDiv).append("<br><b>Aliases: </b>");
 
-    var aliases = response.results[0].biography.aliases;
-    console.log(aliases);
-    $("#Character").append("<br><b>Aliases: </b>");
-    for (i = 0; i < aliases.length; i++) {
-      $("#Character").append(aliases[i] + " | ");
+      var aliases = response.results[i].biography.aliases;
+      console.log(aliases);
+      for (j = 0; j < aliases.length; j++) {
+        $(newDiv).append(aliases[j] + " | ");
+      }
+
+      $(newDiv).append("<br><b>Group Affiliation: </b>" + response.results[i].connections["group-affiliation"]);
+      $(newDiv).append("<br><b>Power Stats: </b>" + "combat: " + response.results[i].powerstats.combat + "| " +
+        "durability: " + response.results[i].powerstats.durability + "| " + "intelligence: " + response.results[i].powerstats.intelligence + "| " +
+        "power: " + response.results[i].powerstats.power + "| " + "speed: " + response.results[i].powerstats.speed + "| " + "strength: " + response.results[i].powerstats.strength+"<br>"+"<br>")
+      $("#Character").append(newDiv);
     }
-    $("#Character").append("<br><b>Group Affiliation: </b>" + response.results[0].connections["group-affiliation"]);
-    $("#Character").append("<br><b>Power Stats: </b>" + "combat: " + response.results[0].powerstats.combat + "| " +
-      "durability: " + response.results[0].powerstats.durability + "| " + "intelligence: " + response.results[0].powerstats.intelligence + "| " +
-      "power: " + response.results[0].powerstats.power + "| " + "speed: " + response.results[0].powerstats.speed + "| " + "strength: " + response.results[0].powerstats.strength);
   })
 })
 
