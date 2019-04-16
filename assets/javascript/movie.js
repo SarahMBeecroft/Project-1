@@ -13,6 +13,13 @@ function openSearch(evt, searchParameter) {
     evt.currentTarget.className += " active";
 }
 
+// click event: enter key equals to search button clicked 
+$("#searchAll").keyup(function(event) {
+    if (event.keyCode === 13) {
+        $("#submit-button").click();
+    }
+});
+
 // click event: when user clicks the submit button, show the search result on the right column 
 $("#submit-button").on("click", function (event) {
     event.preventDefault();
