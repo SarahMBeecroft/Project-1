@@ -37,9 +37,7 @@ console.log(queryURL)
     anchorDiv.attr("target","_blank")
 
     anchorDiv.append(snTrkCvr)
-    $("#Music").append(anchorDiv)
-
-
-
+    $("#Music").html(anchorDiv)
+    $("#Music").append("<br> <br>Click the picture to go to the ablum page!")
   })})
 
