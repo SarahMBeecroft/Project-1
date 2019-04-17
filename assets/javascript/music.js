@@ -9,7 +9,7 @@ $("#submit-button").on("click", function (event) {
     console.log(userInput);
 
   // Building Ajax call
-  var urlStart = "https://itunes.apple.com/search?term="
+  var urlStart = "https://cors-anywhere.herokuapp.com/https://itunes.apple.com/search?term="
   var urlEnd = "&entity=album&limit=2"
   var queryURL = urlStart + userInput + urlEnd
 
