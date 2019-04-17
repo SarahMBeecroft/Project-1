@@ -38,6 +38,6 @@ console.log(queryURL)
 
     anchorDiv.append(snTrkCvr)
     $("#Music").html(anchorDiv)
-    $("#Music").append("<br> <br>Click the picture to go to the ablum page!")
+    $("#Music").append("<br> <br>Click the picture above to go to the album page!")
   })})
 
