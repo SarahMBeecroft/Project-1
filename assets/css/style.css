@@ -62,3 +62,21 @@
 body{
   margin-bottom: 3%; 
 }
+
+/* User input validation CSS */
+/* Show red borders when filled, but invalid */
+input[data-state="invalid"] {
+  border-color: hsl(0, 76%, 50%);;
+}
+
+/* Show green borders when valid */
+input[data-state="valid"] {
+  border-color: hsl(120, 76%, 50%);
+}
+
+#errorMessage {
+  color: red;
+  margin-left: 210px;
+}
+
+
