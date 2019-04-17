@@ -19,11 +19,14 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Links to Firebase -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 
     <!-- Links to jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+    <!-- link to google maps api -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPkD2wLsmtwAvS9gmxkggaRFpKdCDtUsM"
+        type="text/javascript"></script>
 </head>
 
 <body>
@@ -76,7 +79,6 @@
                 <button id="Images_tab" class="tablinks" onclick="openSearch(event, 'Images')">Images</button>
                 <button id="Movies_tab" class="tablinks" onclick="openSearch(event, 'Movies')">Movies</button>
                 <button id="Music_tab" class="tablinks" onclick="openSearch(event, 'Music')">Music</button>
-                <button id="Books_tab" class="tablinks" onclick="openSearch(event, 'Books')">Books</button>
                 <button id="Stores_tab" class="tablinks" onclick="openSearch(event, 'Stores')">Stores</button>
             </div>
         </div>
@@ -117,33 +119,34 @@
                         novels, gear, and more.</p>
                 </div>
 
-                <div id="Books" class="tabcontent">
-                    <h3>Books</h3>
-                    <p>Input your favorite superhero in the search box above! We will come back with all the information
-                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
-                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
-                        novels, gear, and more.</p>
-                </div>
-
                 <div id="Stores" class="tabcontent">
                     <h3>Stores</h3>
-                    <p>Input your favorite superhero in the search box above! We will come back with all the information
-                        you could ever need. Make sure to click on the tabs to find some awesome covers, links to movie
-                        posters with cast and crew links, soundtracks to listen to, stores to find comics, graphic
-                        novels, gear, and more.</p>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <input type="text" class="form-control" id="zipcode"
+                                placeholder="Enter your zip code or city name to find the comic stores nearby.">
+                        </div>
+                        <button type="submit" id="zip_submit">Submit</button>
+                        <br>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                    <br>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-12"></div>
-        </div>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-12"></div>
+            </div>
+        </footer>
 
-    <!-- End of Bootstrap container -->
+        <!-- End of Bootstrap container -->
     </div>
 
     <!-- link to movie.js file -->
@@ -154,6 +157,8 @@
     <script src="assets/javascript/music.js"></script>
     <!-- link to character.js file -->
     <script src="assets/javascript/character.js"></script>
+    <!-- link to store.js file -->
+    <script src="assets/javascript/store.js"></script>
 
 </body>
 
