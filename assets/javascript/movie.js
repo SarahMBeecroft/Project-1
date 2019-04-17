@@ -27,7 +27,7 @@ $("#submit-button").on("click", function (event) {
     // store and trim user input of movie search 
     var userInput = $("#searchAll").val().trim();
     console.log(userInput);
-    var movieQueryURL = " http://www.omdbapi.com/?apikey=604e2704&t=" + userInput;
+    var movieQueryURL = " https://www.omdbapi.com/?apikey=604e2704&t=" + userInput;
     $.ajax({
         url: movieQueryURL,
         method: 'GET',
