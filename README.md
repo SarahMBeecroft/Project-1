@@ -1,4 +1,4 @@
-# Project-1 - SuperSource
+# SuperSearch
 Group project #1
 
 ### Team Members
