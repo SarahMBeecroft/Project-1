@@ -1,3 +1,4 @@
+/* Jumbotron styling */
 .jumbotron {
   background-image: url("../image/header2.jpg");
   background-size: cover;
@@ -19,6 +20,7 @@
   text-shadow: 2px 2px black;
 }
 
+/* Search bar styling */
 .icon{
     margin-bottom: 20px; 
 }
@@ -105,4 +107,10 @@ input[data-state="valid"] {
 #errorMessage {
   color: red;
   margin-left: 210px;
+}
+
+
+/* Image results styling */
+#Images {
+  padding: 20px;
 }
