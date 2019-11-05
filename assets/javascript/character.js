@@ -1,4 +1,4 @@
-// when clicking on the submit button, use ajax call to comic vine 
+// when clicking on the submit button, use ajax call to superheroapi
 $("#submit-button").on("click", function (event) {
   event.preventDefault();
   var characterTerm = $("#searchAll").val().trim();
@@ -30,9 +30,9 @@ $("#submit-button").on("click", function (event) {
       }
 
       $(newDiv).append("<br><b>Group Affiliation: </b>" + response.results[i].connections["group-affiliation"]);
-      $(newDiv).append("<br><b>Power Stats: </b>" + "combat: " + response.results[i].powerstats.combat + "| " +
-        "durability: " + response.results[i].powerstats.durability + "| " + "intelligence: " + response.results[i].powerstats.intelligence + "| " +
-        "power: " + response.results[i].powerstats.power + "| " + "speed: " + response.results[i].powerstats.speed + "| " + "strength: " + response.results[i].powerstats.strength+"<br>"+"<br>")
+      $(newDiv).append("<br><b>Power Stats: </b>" + "combat: " + response.results[i].powerstats.combat + " | " +
+        "durability: " + response.results[i].powerstats.durability + " | " + "intelligence: " + response.results[i].powerstats.intelligence + " | " +
+        "power: " + response.results[i].powerstats.power + " | " + "speed: " + response.results[i].powerstats.speed + " | " + "strength: " + response.results[i].powerstats.strength+"<br>"+"<br>")
       $("#Character").append(newDiv);
     }
   })
