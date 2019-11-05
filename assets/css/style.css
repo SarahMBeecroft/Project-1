@@ -114,3 +114,8 @@ input[data-state="valid"] {
 #Images {
   padding: 20px;
 }
+
+img {
+  max-width: 200px;
+  padding: 5px;
+}
