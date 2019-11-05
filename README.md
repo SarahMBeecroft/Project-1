@@ -1,4 +1,4 @@
-# Project-1 - SuperSource
+# Project-1 - SuperSearch
 Group project #1
 
 ### Team Members
@@ -24,5 +24,5 @@ SuperSource is your all-in-one comic book content resource! Just enter in a sear
 and hit enter or press submit to get quick character, image, movie, music, and store results. 
 
 
-#### Link to SuperSource
+#### Link to SuperSearch
 https://sarahmbeecroft.github.io/Project-1/
